@@ -11,7 +11,7 @@ public class HomeController
     @GetMapping("/home_page")
     public String checkLogins(@RequestParam String email, @RequestParam String password, Model model)
     {
-
+        //EDITED
         return "home_page";
     }
 }
