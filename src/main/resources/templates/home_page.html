@@ -56,7 +56,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 10px;    }
+        margin-top: 20px;    }
     :root {
         --font-family-sans-serif: "Open Sans", -apple-system, BlinkMacSystemFont,
         "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
@@ -521,8 +521,9 @@
             <a th:href="@{/gallery}" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Gallery </a>
             <a th:href="@{/update_profile}" class="dashboard-nav-item"><i class="fas fa-user"></i>Update Profile </a>
             <div class="nav-item-divider"></div>
-            <a th:href="@{/user_login_page}"  class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
-
+            <form th:action="@{/logout}">
+                <a   class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
+            </form>
         </nav>
 
 

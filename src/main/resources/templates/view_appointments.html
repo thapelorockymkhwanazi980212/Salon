@@ -51,7 +51,7 @@
         background-position: center;
         background-repeat: no-repeat;
     }
-    .man_woman_buttons
+    .booking_button
     {
         display: flex;
         align-items: center;
@@ -520,9 +520,7 @@
             <a th:href="@{/gallery}" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Gallery </a>
             <a th:href="@{/update_profile}" class="dashboard-nav-item"><i class="fas fa-user"></i>Update Profile </a>
             <div class="nav-item-divider"></div>
-            <form th:action="@{/logout}">
-                <a   class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
-            </form>
+            <a th:href="@{/logout}" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
         </nav>
 
 

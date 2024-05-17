@@ -71,7 +71,15 @@ public class RegisterUserController
             }
 
             model.addAttribute("user", new User());
+
             return "client_login";
         }
+
+    @GetMapping("/admin_page")
+    public String getAdmin()
+    {
+
+        return "admin";
+    }
 
 }

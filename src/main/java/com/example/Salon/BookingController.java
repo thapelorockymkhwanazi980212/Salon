@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 
 @Controller
-public class BookingController {
-
+public class BookingController
+{
     @Autowired
     private BookingsRepository bookingsRepository;
 

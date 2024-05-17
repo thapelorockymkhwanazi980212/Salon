@@ -23,11 +23,11 @@ public class NavigationController
 
 
     @GetMapping("/logout")
-    public String getlogout()
+    public String getLogout()
     {
 
 
-        return "create_account";
+        return "redirect:/";
     }
 
     @GetMapping("/view_appointments")
@@ -35,14 +35,14 @@ public class NavigationController
     {
 
 
-        return "view_appointments"; // Assuming "view_appointments" is the name of your Thymeleaf template
+        return "view_appointments";
     }
 
     @GetMapping("/update_profile")
     public String getUpdateProfile(@ModelAttribute User user)
     {
 
-        return "update_profile"; // Assuming "view_appointments" is the name of your Thymeleaf template
+        return "update_profile";
     }
 
     @GetMapping("/gallery")
@@ -57,6 +57,21 @@ public class NavigationController
     {
 
         return "home_page";
+    }
+
+    //admin mappings
+    @GetMapping("/clients_list")
+    public String getClientsList()
+    {
+
+        return "clients_list";
+    }
+
+    @GetMapping("/appointments_list")
+    public String getAppointmentsList()
+    {
+
+        return "redirect:/all_bookings";
     }
 
 }
