@@ -35,9 +35,9 @@ public class RegisterUserController
     public String registerUser(@ModelAttribute Client client, Model model)
     {
         clientRepository.save(client);
-        List<Client> clientList = clientRepository.findAll();
-        model.addAttribute("client", new Client());
-        model.addAttribute("clientList", clientList);
+//        List<Client> clientList = clientRepository.findAll();
+//        model.addAttribute("client", new Client());
+//        model.addAttribute("clientList", clientList);
 
         return "client_login";
     }
