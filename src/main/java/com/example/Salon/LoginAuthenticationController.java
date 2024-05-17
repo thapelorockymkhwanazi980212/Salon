@@ -3,6 +3,7 @@ package com.example.Salon;
 import com.example.Salon.Models.Client;
 import com.example.Salon.Models.User;
 import com.example.Salon.Repository.ClientRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.mongodb.repository.Query;
@@ -24,9 +25,9 @@ public class LoginAuthenticationController
 
 
     @PostMapping("/login_authentication")
-   public String loginAuthentication(@ModelAttribute User user, Model model)
+   public String loginAuthentication(@ModelAttribute User user, Model model,  HttpSession session)
    {
-       String page = "client_login2";
+       String page = "client_login";
 
        Client client = new Client();
        client.setEmail(user.getEmail());
@@ -40,17 +41,20 @@ public class LoginAuthenticationController
            {
                page = "home_page";
            }
+            else
+            {
+                model.addAttribute("errorMessage", "Invalid username or password.");
+            }
        }
 
-       //use to code for daabase
-//
-//       Client client = new Client();
-//       client.setEmail(clientOptional.get().getEmail());
-//       client.setName(clientOptional.get().getName()) ;
-
-        model.addAttribute("error_message", "Incorrect username or password");
         return page;
    }
 
 
 }
+
+//use to code for database
+//
+//       Client client = new Client();
+//       client.setEmail(clientOptional.get().getEmail());
+//       client.setName(clientOptional.get().getName()) ;

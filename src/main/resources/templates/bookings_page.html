@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Bookings Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+<div class='dashboard'>
+    <div class="dashboard-nav">
+        <header>
+            <a href="" class="menu-toggle"><i class="fas fa-bars"></i></a>
+            <a href="#" class="brand-logo"><i class="fas fa-anchor"></i> <span>Snip&Style</span></a>
+        </header>
+        <nav class="dashboard-nav-list">
+            <a th:href="@{/home}" class="dashboard-nav-item"><i class="fas fa-home"></i>Home</a>
+            <a th:href="@{/view_appointments}" class="dashboard-nav-item active"><i class="fas fa-list-alt"></i> View Appointments</a>
+            <a th:href="@{/gallery}" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Gallery </a>
+            <a th:href="@{/update_profile}" class="dashboard-nav-item"><i class="fas fa-user"></i>Update Profile </a>
+            <div class="nav-item-divider"></div>
+            <a th:href="@{/logout}" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
+        </nav>
+    </div>
+
+    <div class='dashboard-app'>
+        <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a></header>
+        <div class='dashboard-content'>
+            <div class='container'>
+                <form action="#" th:action="@{/confirm_booking}" th:object="${bookings}" method="POST">
+                    <div class="row register-form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" th:field="*{name}" class="form-control" placeholder="Name*" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" th:field="*{surname}" placeholder="Surname*" required />
+                            </div>
+                            <div class="form-group">
+                                <select class="form-select" th:field="*{hairstyle}" aria-label="Default select example">
+                                    <option value="" selected>Select Hairstyle</option>
+                                    <option value="fade_hair_cut">Fade Hair Cut</option>
+                                    <option value="mohawk">Mohawk</option>
+                                    <option value="dye">Dye</option>
+                                    <option value="shaving">Shaving</option>
+                                    <option value="chiskop">Chiskop</option>
+                                    <option value="braids">Braids</option>
+                                    <option value="dreadlocks">Dreadlocks</option>
+                                    <option value="bob_cut">Bob Cut</option>
+                                    <option value="hair_wash">Hair Wash</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="start">Select a Date:</label>
+                                <input type="date" id="start" th:field="*{bookingDate}" class="form-control" />
+                            </div>
+                            <div class="form-floating">
+                                <textarea class="form-control" th:field="*{comment}" placeholder="Leave additional information here" id="floatingTextarea"></textarea>
+                                <label for="floatingTextarea">Additional Information</label>
+                            </div>
+                            <div>
+                                <input type="submit" class="btn btn-primary btn-lg" value="CONFIRM BOOKING" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<img src="Pictures/Home-background.jpg" alt="Home Background" class="d-block" style="width:100%">
+</body>
+</html>

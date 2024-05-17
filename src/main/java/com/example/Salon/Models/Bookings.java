@@ -3,26 +3,27 @@ package com.example.Salon.Models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Document
-public class Bookings
-{
-   @Id
+public class Bookings {
+
+    @Id
     private String id;
     private String name;
-    private String Surname;
+    private String surname;
     private String hairstyle;
-    private Date bookingDate;
+    private LocalDate bookingDate;
     private String comment;
 
     public Bookings() {
     }
 
-    public Bookings(String hairstyle, String name, String surname, Date bookingDate, String comment) {
+    public Bookings(String hairstyle, String name, String surname, LocalDate bookingDate, String comment) {
         this.hairstyle = hairstyle;
         this.name = name;
-        Surname = surname;
+        this.surname = surname;
         this.bookingDate = bookingDate;
         this.comment = comment;
     }
@@ -44,11 +45,11 @@ public class Bookings
     }
 
     public String getSurname() {
-        return Surname;
+        return surname;
     }
 
     public void setSurname(String surname) {
-        Surname = surname;
+        this.surname = surname;
     }
 
     public String getHairstyle() {
@@ -59,11 +60,11 @@ public class Bookings
         this.hairstyle = hairstyle;
     }
 
-    public Date getBookingDate() {
+    public LocalDate getBookingDate() {
         return bookingDate;
     }
 
-    public void setBookingDate(Date bookingDate) {
+    public void setBookingDate(LocalDate bookingDate) {
         this.bookingDate = bookingDate;
     }
 

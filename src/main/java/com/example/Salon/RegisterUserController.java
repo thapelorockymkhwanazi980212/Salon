@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.List;
 
 @Controller
@@ -38,6 +40,7 @@ public class RegisterUserController
 //        List<Client> clientList = clientRepository.findAll();
 //        model.addAttribute("client", new Client());
 //        model.addAttribute("clientList", clientList);
+        model.addAttribute("user", new User());
 
         return "client_login";
     }
@@ -56,18 +59,19 @@ public class RegisterUserController
 
     //controller for user login
     @GetMapping("/user_login_page")
-        public String userLoginPageRequestBody (Model model)
+        public String userLoginPageRequestBody (Model model, @RequestParam(required = false) String error)
         {
 //            User user = new User();
 //            user.setUsername("admin");
 //            user.setPassword("admin");
 //            user.setEmail("admin@gmail.com");
 
-            model.addAttribute("user", new User());
+            if (error != null) {
+                model.addAttribute("errorMessage", "Invalid username or password.");
+            }
 
+            model.addAttribute("user", new User());
             return "client_login";
         }
-
-
 
 }

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="">
 <head>
     <title>Admin Page</title>
@@ -14,8 +15,7 @@
         var password = document.getElementById("password").value;
 
         // Here, you can add your logic to check if the username or password is incorrect
-        if (email !== "valid@email.com" || password !== "password123")
-        {
+        if (email !== "valid@email.com" || password !== "password123") {
             alert("Username or password is incorrect!");
             return false; // Prevent form submission
         }
@@ -24,28 +24,32 @@
     }
 </script>
 <div class="form-container">
-        <div class="login-form">
-            <form action="#" method="post" th:action="@{/login_authentication}" th:object="${user}">
-                <table>
-                    <tr>
-                        <td>Username:</td>
-                        <td><input type="text"  th:field="*{email}" class="form-control" placeholder="email address**" required /></td>
-                    </tr>
+    <div class="login-form">
+        <script>
 
-                    <tr>
-                        <td>Password:</td>
-                        <td><input type="text" th:field="*{password}" class="form-control" placeholder="password*" required /></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><input type="submit" value="LOGING"></td>
+        </script>
+        <form action="#" method="post" th:action="@{/login_authentication}" th:object="${user}" >
+            <table>
+                <tr th:if="${errorMessage}" class="alert alert-danger" role="alert">
+                    <td  th:text="${errorMessage}"></td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" id="email" th:field="*{email}" class="form-control" placeholder="email address**" required /></td>
+                </tr>
 
-
-                        <td><a th:href="@{/reset_password.html}">Forgot Password?</a></td>
-                    </tr>
-                </table>
-            </form>
-        </div>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" id="password" th:field="*{password}" class="form-control" placeholder="password*" required /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="LOGIN"></td>
+                    <td><a th:href="@{/reset_password.html}">Forgot Password?</a></td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </div>
 </body>
 </html>
