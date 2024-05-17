@@ -16,7 +16,7 @@ public class RegisterUserController
     @Autowired
     private ClientRepository clientRepository;
 
-    @GetMapping("/create_account")
+    @GetMapping("/")
     public String viewRegisteredUser(Model model)
     {
         model.addAttribute("client", new Client());

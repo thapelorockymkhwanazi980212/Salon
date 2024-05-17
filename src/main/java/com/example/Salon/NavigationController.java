@@ -1,6 +1,8 @@
 package com.example.Salon;
 
+import com.example.Salon.Repository.ClientRepository;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,17 +12,14 @@ import java.io.IOException;
 @Controller
 public class NavigationController
 {
+    @Autowired
+    private ClientRepository clientRepository;
 
     @GetMapping("/logout")
-    public String logout(Model model, HttpServletResponse response) throws IOException
+    public String logout()
     {
 
-        response.setHeader(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, must-revalidate");
-        response.setHeader(HttpHeaders.PRAGMA, "no-cache");
-        response.setHeader(HttpHeaders.EXPIRES, "0");
-        response.sendRedirect("home_page");
-
-        return "home_page";
+        return "create_account";
     }
 
     @GetMapping("/view_appointments")
@@ -29,9 +28,10 @@ public class NavigationController
         return "view_appointments"; // Assuming "view_appointments" is the name of your Thymeleaf template
     }
 
-    @GetMapping("/view_appointments")
+    @GetMapping("/update_profile")
     public String updateProfile()
     {
+
         // Logic to fetch appointments data and render the appointments view
         return "update_profile"; // Assuming "view_appointments" is the name of your Thymeleaf template
     }

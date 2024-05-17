@@ -24,7 +24,7 @@
     }
 </script>
 
-<form th:action="@{/login_authentication}" method="post" >
+<form th:action="@{/login_authentication}" method="GET" >
     <table>
         <tr>
             <td>Username:</td>
@@ -38,8 +38,6 @@
         <tr>
             <td></td>
             <td><input type="submit" value="LOGIN"></td>
-
-
             <td><a th:href="@{/reset_password.html}">Forgot Password?</a></td>
         </tr>
     </table>
