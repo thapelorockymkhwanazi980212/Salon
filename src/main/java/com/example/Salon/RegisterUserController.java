@@ -17,14 +17,14 @@ public class RegisterUserController
     private ClientRepository clientRepository;
 
     @GetMapping("/")
-    public String viewRegisteredUser(Model model)
+    public String getCreateAccount(Model model)
     {
         model.addAttribute("client", new Client());
         return "create_account";
     }
 
     @GetMapping("/register_successful")
-    public String viewList(Model model)
+    public String userAdded(Model model)
     {
         model.addAttribute("client", new Client());
         return "home_page";

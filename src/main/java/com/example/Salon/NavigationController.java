@@ -1,5 +1,6 @@
 package com.example.Salon;
 
+import com.example.Salon.Models.User;
 import com.example.Salon.Repository.ClientRepository;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
 import java.io.IOException;
 
 @Controller
@@ -16,7 +19,7 @@ public class NavigationController
     private ClientRepository clientRepository;
 
     @GetMapping("/logout")
-    public String logout()
+    public String getlogout()
     {
 
         return "create_account";
@@ -24,16 +27,29 @@ public class NavigationController
 
     @GetMapping("/view_appointments")
     public String viewAppointments() {
-        // Logic to fetch appointments data and render the appointments view
+
         return "view_appointments"; // Assuming "view_appointments" is the name of your Thymeleaf template
     }
 
     @GetMapping("/update_profile")
-    public String updateProfile()
+    public String getUpdateProfile(@ModelAttribute User user)
     {
 
-        // Logic to fetch appointments data and render the appointments view
         return "update_profile"; // Assuming "view_appointments" is the name of your Thymeleaf template
+    }
+
+    @GetMapping("/gallery")
+    public String getGallery()
+    {
+
+        return "gallery";
+    }
+
+    @GetMapping("/home")
+    public String getHome()
+    {
+
+        return "home_page";
     }
 
 }

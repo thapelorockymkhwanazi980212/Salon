@@ -516,9 +516,9 @@
         <header><a href="" class="menu-toggle"><i class="fas fa-bars"></i></a><a href="#" class="brand-logo"><i
                 class="fas fa-anchor"></i> <span>Snip&Style</span></a></header>
 
-        <nav class="dashboard-nav-list"><a href="#" class="dashboard-nav-item"><i class="fas fa-home"></i>Home</a>
-            <a th:href="@{/view_appointments}" class="dashboard-nav-item active"><i class="fas fa-list-alt" aria-hidden="true"></i> View Appointments</a>
-            <a href="#" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Upload </a>
+        <nav class="dashboard-nav-list"><a th:href="@{/home}" class="dashboard-nav-item"><i class="fas fa-home"></i>Home</a>
+            <a th:href="@{/view_appointments}" class="dashboard-nav-item active"><i class="fas fa-list-alt"></i> View Appointments</a>
+            <a th:href="@{/gallery}" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Gallery </a>
             <a th:href="@{/update_profile}" class="dashboard-nav-item"><i class="fas fa-user"></i>Update Profile </a>
             <div class="nav-item-divider"></div>
             <form th:action="@{/logout}">
@@ -534,7 +534,7 @@
             <div class='container'>
                 <div class='card'>
                     <div class='card-header'>
-                        <h1>Welcome back Jim</h1>
+                        <h1>Welcome</h1>
                     </div>
                     <div class='card-body'>
                         <p>Your account type is: Administrator</p>
