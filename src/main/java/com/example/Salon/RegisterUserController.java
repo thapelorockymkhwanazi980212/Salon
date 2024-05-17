@@ -58,12 +58,12 @@ public class RegisterUserController
     @GetMapping("/user_login_page")
         public String userLoginPageRequestBody (Model model)
         {
-            User user = new User();
-            user.setUsername("admin");
-            user.setPassword("admin");
-            user.setEmail("admin@gmail.com");
+//            User user = new User();
+//            user.setUsername("admin");
+//            user.setPassword("admin");
+//            user.setEmail("admin@gmail.com");
 
-            model.addAttribute("user", user);
+            model.addAttribute("user", new User());
 
             return "client_login";
         }

@@ -24,14 +24,14 @@ public class LoginAuthenticationController
 
 
     @PostMapping("/login_authentication")
-   public String loginAuthentication(@ModelAttribute User user)
+   public String loginAuthentication(@ModelAttribute User user, Model model)
    {
        String page = "client_login2";
 
-       Client oneClient = new Client();
-       oneClient.setEmail(user.getEmail());
+       Client client = new Client();
+       client.setEmail(user.getEmail());
 
-       Example<Client> example = Example.of(oneClient);
+       Example<Client> example = Example.of(client);
        Optional<Client> clientOptional = clientRepository.findOne(example);
 
        if(clientOptional.isPresent())
@@ -42,17 +42,13 @@ public class LoginAuthenticationController
            }
        }
 
-       Client client = new Client();
-       client.setEmail(clientOptional.get().getEmail());
-       client.setName(clientOptional.get().getName())   ;
-      //Client client =  clientRepository.findByEmail(user.getEmail());
+       //use to code for daabase
+//
+//       Client client = new Client();
+//       client.setEmail(clientOptional.get().getEmail());
+//       client.setName(clientOptional.get().getName()) ;
 
-
-          //if(user.getPassword().equals(client.getPassword()))
-          {
-
-          }
-        //model.addAttribute("error_message", "Incorrect username or password");
+        model.addAttribute("error_message", "Incorrect username or password");
         return page;
    }
 
