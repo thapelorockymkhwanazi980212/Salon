@@ -610,7 +610,7 @@ var Webcam = {
         			if (ver) hasFlash = true;
         		}
         	}
-        	catch (e) {;}
+        	catch (e) {}
         }
         
         return hasFlash;

@@ -7,20 +7,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Page</title>
-    <link rel="stylesheet" href="assets/css/indexcss.css">
+    <link rel="stylesheet" href="indexcss.css">
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <style>
-        /* CSS for highlighting error input fields */
-        .register-form
-        {
-            margin-bottom: 15px;
-        }
 
-    </style>
     <script>
         function validateForm()
         {
@@ -64,9 +57,10 @@
             <img src="Pictures/login_background.jpg" alt="" />
             <h3>Welcome</h3>
             <p>If you have an account login below.</p>
-            <form th:action="@{/user_login_page}" method="GET" >
+
+            <form th:action="@{/user_login_page}" method="get">
                 <input type="submit" value="LOGIN" class="btn btn-primary btn-lg" /><br />
-            </form>N
+            </form>
         </div>
         <div class="col-md-9 register-right">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">

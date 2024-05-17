@@ -1,6 +1,7 @@
 package com.example.Salon;
 
 import com.example.Salon.Models.Client;
+import com.example.Salon.Models.User;
 import com.example.Salon.Repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,8 +56,15 @@ public class RegisterUserController
 
     //controller for user login
     @GetMapping("/user_login_page")
-        public String userLoginPage()
+        public String userLoginPageRequestBody (Model model)
         {
+            User user = new User();
+            user.setUsername("admin");
+            user.setPassword("admin");
+            user.setEmail("admin@gmail.com");
+
+            model.addAttribute("user", user);
+
             return "client_login";
         }
 

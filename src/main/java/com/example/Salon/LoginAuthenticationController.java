@@ -1,16 +1,20 @@
 package com.example.Salon;
 
 import com.example.Salon.Models.Client;
+import com.example.Salon.Models.User;
 import com.example.Salon.Repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class LoginAuthenticationController
@@ -20,20 +24,36 @@ public class LoginAuthenticationController
 
 
     @PostMapping("/login_authentication")
-   public String loginAuthentication( @RequestParam("email_address") String email_address, @RequestParam("password") String password)
+   public String loginAuthentication(@ModelAttribute User user)
    {
-//      Client client =  clientRepository.findByEmail(email_address);
-//      String page = "home_page";
+       String page = "client_login2";
 
-//      if(client.getEmail().equals(email_address))
-//      {
-//          if(password.equals(client.getPassword()))
-//          {
-//              page = "home_page";
-//          }
-//      }
+       Client oneClient = new Client();
+       oneClient.setEmail(user.getEmail());
+
+       Example<Client> example = Example.of(oneClient);
+       Optional<Client> clientOptional = clientRepository.findOne(example);
+
+       if(clientOptional.isPresent())
+       {
+            if(clientOptional.get().getPassword().equals(user.getPassword()))
+           {
+               page = "home_page";
+           }
+       }
+
+       Client client = new Client();
+       client.setEmail(clientOptional.get().getEmail());
+       client.setName(clientOptional.get().getName())   ;
+      //Client client =  clientRepository.findByEmail(user.getEmail());
+
+
+          //if(user.getPassword().equals(client.getPassword()))
+          {
+
+          }
         //model.addAttribute("error_message", "Incorrect username or password");
-        return "home_page";
+        return page;
    }
 
 

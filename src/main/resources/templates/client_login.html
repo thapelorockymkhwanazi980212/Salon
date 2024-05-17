@@ -1,9 +1,9 @@
-<html lang="">
+<html xmlns:th="http://www.thymeleaf.org" lang="">
 <head>
     <title>Admin Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 <h1>Client Login Page</h1>
@@ -23,26 +23,29 @@
         return true; // Allow form submission if credentials are correct
     }
 </script>
+<div class="form-container">
+        <div class="login-form">
+            <form action="#" method="post" th:action="@{/login_authentication}" th:object="${user}">
+                <table>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text"  th:field="*{email}" class="form-control" placeholder="email address**" required /></td>
+                    </tr>
 
-<form th:action="@{/login_authentication}" method="post" >
-    <table>
-        <tr>
-            <td>Username:</td>
-            <td><input type="text" name="email_address" class="form-control" placeholder="email address**" required /></td>
-        </tr>
-
-        <tr>
-            <td>Password:</td>
-            <td><input type="text"  name="password" class="form-control" placeholder="password*" required /></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="submit" value="LOGIN"></td>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="text" th:field="*{password}" class="form-control" placeholder="password*" required /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="LOGING"></td>
 
 
-            <td><a th:href="@{/reset_password.html}">Forgot Password?</a></td>
-        </tr>
-    </table>
-</form>
+                        <td><a th:href="@{/reset_password.html}">Forgot Password?</a></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+</div>
 </body>
 </html>
