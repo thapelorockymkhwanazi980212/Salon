@@ -59,6 +59,13 @@ public class NavigationController
         return "home_page";
     }
 
+    @GetMapping("/about_us")
+    public String getAboutUs()
+    {
+
+        return "about_us";
+    }
+
     //admin mappings
     @GetMapping("/clients_list")
     public String getClientsList()
