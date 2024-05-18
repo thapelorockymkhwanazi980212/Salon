@@ -69,27 +69,25 @@ public class PasswordController
     }
 
     @PostMapping("/update_password")
-    public String updatePassword(@ModelAttribute User user, Model model, HttpSession session)
-    {
-
+    public String updatePassword(@ModelAttribute User user, Model model, HttpSession session) {
 
         Client client = new Client();
+        client.setEmail(user.getEmail());
 
         Example<Client> example = Example.of(client);
         Optional<Client> clientOptional = clientRepository.findOne(example);
 
+        String page = "redirect:/password_updater";
 
-        if(clientOptional.isPresent())
+        if (clientOptional.isPresent())
         {
-//            if(clientOptional.get().getPassword().equals(user.getPassword()))
-//            {
-//                page = "home_page";
-//            }
-//            else
-//            {
-//                model.addAttribute("errorMessage", "Invalid username or password.");
-//            }
-            page = "reset_password";
+            Client existing = clientOptional.get();
+            existing.setPassword(user.getPassword());
+            clientRepository.save(existing);
+
+            page = "redirect:/user_login_page";
         }
 
+        return page;
+    }
 }

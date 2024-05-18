@@ -37,12 +37,13 @@ public class RegisterUserController
     public String registerUser(@ModelAttribute Client client, Model model)
     {
         clientRepository.save(client);
+
 //        List<Client> clientList = clientRepository.findAll();
 //        model.addAttribute("client", new Client());
 //        model.addAttribute("clientList", clientList);
         model.addAttribute("user", new User());
 
-        return "client_login";
+        return "redirect:/user_login_page";
     }
 
 
@@ -76,10 +77,16 @@ public class RegisterUserController
         }
 
     @GetMapping("/admin_page")
-    public String getAdmin()
+    public String getAdmin(Model model, @RequestParam(required = false) String error)
     {
 
-        return "admin";
+        if (error != null) {
+            model.addAttribute("errorMessage", "Invalid username or password.");
+        }
+
+        model.addAttribute("user", new User());
+
+        return "admin_login";
     }
 
 }

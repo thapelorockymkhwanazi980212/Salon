@@ -1,6 +1,7 @@
 package com.example.Salon;
 
 
+import com.example.Salon.Config.DateUtils;
 import com.example.Salon.Models.Bookings;
 import com.example.Salon.Repository.BookingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class BookingController
     @PostMapping("/confirm_booking")
     public String confirmBooking(@ModelAttribute Bookings bookings, Model model) {
         bookingsRepository.save(bookings);
-        return "redirect:/booking_confirmed";
+        return "redirect:/home";
     }
 
     @GetMapping("/booking_confirmed")

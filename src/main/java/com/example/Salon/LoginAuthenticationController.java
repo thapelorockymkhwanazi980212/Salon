@@ -51,6 +51,29 @@ public class LoginAuthenticationController
    }
 
 
+   //post mapping for adminlogin
+
+    @PostMapping("/admin_login_authentication")
+    public String AdminLoginAuthentication(@ModelAttribute User user, Model model,  HttpSession session)
+    {
+        String page = "admin_login";
+
+        if(user.getEmail().equals("Admin@gmail.com"))
+        {
+            if((user.getPassword()).equals("admin"))
+            {
+                page = "admin";
+            }
+            else
+            {
+                model.addAttribute("errorMessage", "Invalid username or password.");
+            }
+        }
+
+        return page;
+    }
+
+
 }
 
 //use to code for database

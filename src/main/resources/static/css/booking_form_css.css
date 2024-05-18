@@ -1,0 +1,53 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.container
+{
+    background-color:  #95999c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    align-content: center;
+}
+
+.register-form
+{
+    margin-top: 150px;
+}
+
+.form-control,
+.form-select {
+    border-radius: 20px;
+    border: 10px solid #ced4da;
+    padding: 10px;
+    font-size: 30px;
+}
+
+textarea
+{
+    margin-top: 50px;
+
+}
+
+.form-group
+{
+    margin-top: 30px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-floating label {
+    padding: 0 10px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}

@@ -1,19 +1,11 @@
 package com.example.Salon;
 
-import com.example.Salon.Models.Client;
 import com.example.Salon.Models.User;
 import com.example.Salon.Repository.ClientRepository;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-
-import java.io.IOException;
-import java.util.Optional;
 
 @Controller
 public class NavigationController
@@ -81,4 +73,10 @@ public class NavigationController
         return "redirect:/all_bookings";
     }
 
+    @GetMapping("/services")
+    public String getServices()
+    {
+
+        return "services";
+    }
 }
