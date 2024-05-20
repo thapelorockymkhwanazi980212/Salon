@@ -73,6 +73,11 @@ public class LoginAuthenticationController
         return page;
     }
 
+    @GetMapping("/admin")
+public String getAdmin()
+    {
+        return "admin";
+    }
 
 }
 

@@ -43,7 +43,7 @@ public class RegisterUserController
 //        model.addAttribute("clientList", clientList);
         model.addAttribute("user", new User());
 
-        return "redirect:/user_login_page";
+        return "client_login";
     }
 
 

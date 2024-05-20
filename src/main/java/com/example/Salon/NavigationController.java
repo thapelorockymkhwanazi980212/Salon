@@ -1,11 +1,16 @@
 package com.example.Salon;
 
+import ch.qos.logback.core.model.Model;
+import com.example.Salon.Models.Bookings;
+import com.example.Salon.Models.Client;
 import com.example.Salon.Models.User;
 import com.example.Salon.Repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+
+import java.util.List;
 
 @Controller
 public class NavigationController
@@ -59,13 +64,15 @@ public class NavigationController
     }
 
     //admin mappings
+
+
     @GetMapping("/clients_list")
-    public String getClientsList()
-    {
+    public String getClientList(org.springframework.ui.Model model) {
+        List<Client> clients = clientRepository.findAll();
+        model.addAttribute("clients", clients);
 
         return "clients_list";
     }
-
     @GetMapping("/appointments_list")
     public String getAppointmentsList()
     {
